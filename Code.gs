@@ -1,7 +1,7 @@
 function sendEmail(e) {
 
       var ss = SpreadsheetApp.getActiveSpreadsheet(); 
-      var sheet = ss.getSheetByName("PENDAFTARAN");
+      var sheet = ss.getSheetByName("PENDAFTARAN"); //Nama Sheet dekat bawah. Bukan nama file.
       var email = sheet.getRange(sheet.getLastRow(),3,1,1).getValue(); 
       var id = sheet.getRange(sheet.getLastRow(),1,1,1).getValue();
       var nama = sheet.getRange(sheet.getLastRow(),4,1,1).getValue();
