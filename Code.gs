@@ -1,23 +1,11 @@
 function sendEmail(e) {
-
       var ss = SpreadsheetApp.getActiveSpreadsheet(); 
-      var sheet = ss.getSheetByName("PENDAFTARAN"); //Nama Sheet dekat bawah. Bukan nama file.
-      var email = sheet.getRange(sheet.getLastRow(),3,1,1).getValue(); 
-      var id = sheet.getRange(sheet.getLastRow(),1,1,1).getValue();
+      var sheet = ss.getSheetByName("PENDAFTARAN"); // Provide your sheet name (located at the bottom of the google sheet page)
+      var email = sheet.getRange(sheet.getLastRow(),3,1,1).getValue();  // get the range of last row, 3rd column, 1 row and 1 column (1x1) length.
+      var id = sheet.getRange(sheet.getLastRow(),1,1,1).getValue(); // simillar to previous var
       var nama = sheet.getRange(sheet.getLastRow(),4,1,1).getValue();
 
-
-
-
-  //Logger.log(sheet.getLastRow() + " Is the last Row.");
-  
-  //var range = sheet.getLastRow()
-  //var range2 = range.getRange();
-  
-  //Range Values
-  //var data = getValues(range);
-  //console.log(id);
-
+     // var messages in HTML
      var message = "<HTML><BODY style=text-align:center>"
 
           + "Terima kasih "
@@ -32,50 +20,26 @@ function sendEmail(e) {
           + "</h1>"
           + "<br/><hr>"
           + "<p>Sila pastikan anda mencetak nombor ini untuk rujukan nombor bertuah</p>"      
- 
           + "</BODY></HTML>";
 
-         var emailQuotaRemaining = MailApp.getRemainingDailyQuota();
+      // Just for log. You may put another function to trigger a warning as google free account allows only 100 mail/day
+         var emailQuotaRemaining = MailApp.getRemainingDailyQuota(); 
           Logger.log("Remaining email quota: " + emailQuotaRemaining);
-
+      
+      // Just for log again as you want to troubleshoot any errors
           console.log("emel::", email)
           console.log("id::", id)
           console.log("nama::", nama)
-          //console.log("mesej::", message)
           Logger.log(message)
-        //MailApp.sendEmail(email, "FUN RIDE GEMAPUTRA -"+id, {htmlBody: message}); 
+      
+      // i have commented this as google have it limits on message length
+        //MailApp.sendEmail(email, "TITLE OF EMAIL -"+id, {htmlBody: message}); 
 
+      // Using option field to make sure no [blank][blank] error...
         var options = {};
-options.name = "Urusetia Fun Ride Gemaputra";
-options.htmlBody = message;
-MailApp.sendEmail(email, "FUN RIDE GEMAPUTRA : "+id, "[nohtml]Terima kasih, no ID pendaftaran anda ialah"+id, options) 
+            options.name = "Your-Sender-Name-if-not-this-will-be-your-default-name";
+            options.htmlBody = message;
+
+            MailApp.sendEmail(email, "TITLE OF EMAIL : "+id, "[nohtml]No HTML Message if htmlBody doesnt work"+id, options) 
         
-    }
-
-
-
-
-
-
-//   var named_values = e.namedValues
-//   var values  = e.values
-//   var recepient = named_values['Email Address']
-//   // var id_values = e.values
-
-//   var locations = [
-// ["PENDAFTARAN",1,2,2],
-// ];
-
-  
-//   var id  = named_values["ID"]
-
-//   var body = "Terima kasih " + recepient + ". Pendaftaran berjaya. Nombor ID anda ialah " + id + "."
-
-//   console.log("named_values::", named_values)
-//   console.log("values::", values)
-//   // console.log("rec::", recepient)
-//   // console.log("id::", id)
-  //  console.log("pendaf::", email)
-//   MailApp.sendEmail(recepient, body)
-
-//}
+}
