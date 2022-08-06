@@ -6,6 +6,6 @@ google-appscript > App Script for sending email using mailApp.sendMail() to ever
 
 Info
 ==============
-Instead of using default response email from google form. This code are able to select which row+column in the response sheet and send it to corresponding email.
+Instead of using default response email from google form. This code are able to select which row+column in the response sheet and send it to the corresponding email (or you can specify it manually)
 
-Additional file.txt (in gsheet formula) generate recursive unique id after form being submitted. This is why i made my own script.
+Additional random-formula-for-sheet (gsheet formula) generate unique id after form being submitted. This is why i made my own script.
