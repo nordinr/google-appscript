@@ -1,6 +1,6 @@
 Guide
 ===========
-This was a project of registration submission using google form where everyone will be emailed their unique id, FRG-XXXX(Prefix can be modified) after their registration.
+This was a project of registration submission using google form where everyone will be emailed their unique id, `FRG-XXXX(Prefix can be modified)` after their registration.
 
 google-appscript > App Script for sending email using mailApp.sendMail() to every response submitted in Google Form
 ```
@@ -12,6 +12,6 @@ Info
 ==============
 Instead of using default response email from google form. This code are able to select which row+column in the response sheet and send it to the corresponding email (or you can specify it manually)
 
-Additional file random-formula-for-sheet (gsheet formula) generate unique id after form being submitted.
+Additional file `random-formula-for-sheet` (gsheet formula) generate unique id after form being submitted.
 
 -nordinr
